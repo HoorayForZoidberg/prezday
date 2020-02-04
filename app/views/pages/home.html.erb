@@ -1,2 +1,59 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% trips = [
+  {
+    title: "Bali Beach Extravaganza",
+    description: "Tan all day, party all night!",
+    price: "4 nights for $390",
+    image_url: "https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cms/best-beaches-in-bali-padang-1518083786-735X412.jpg"
+  },
+  {
+    title: "Caribbean Getaway",
+    description: "Sea, sun & fun",
+    price: "3 nights for $250",
+    image_url: "https://3j0grh44ocny4a6kcn288izx-wpengine.netdna-ssl.com/wp-content/uploads/2019/02/caribbean-beach-hotels-cover-950x530.jpg"
+  },
+  {
+    title: "Canadian Safari",
+    description: "Get loose with the moose!",
+    price: "3 nights for $300",
+    image_url: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/06/30/11/an125217386bte04x-emerald-l.jpg?w968"
+  },
+  {
+    title: "Vegas Girl Trip",
+    description: "Treat yo' self",
+    price: "3 nights for $350",
+    image_url: "https://static.reservedirect.com/media/product/gallery/539/Las_Vegas_Party_Bus_Crawl_(50822).jpg"
+  },
+  {
+    title: "Cali Sun'N'Fun",
+    description: "All you can dance, all you can beach!",
+    price: "4 nights for $200",
+    image_url: "https://www.bestinbeach.com/wp-content/uploads/2015/04/diplo-and-friends-holy-ship-live-mix.jpg"
+  },
+  {
+    title: "Miami Super Party",
+    description: "3 nights, 3 nightclubs, all VIP",
+    price: "3 nights for $300",
+    image_url: "https://www.miamibeachguest.com/wp-content/uploads/2018/08/miami-beaches-for-surfing-and-party.jpg"
+  },
+  {
+    title: "Eugene Cleanse",
+    description: "Where fun goes to die!",
+    price: "4 nights for $69",
+    image_url: "https://www.visittheusa.com/sites/default/files/styles/hero_m_1300x700/public/images/hero_media_image/2017-05/9eb418c72964e129a48a9b210bbf414b.jpeg?itok=YS7QJzrw"
+  }
+] %>
+
+<% trips.shuffle.each do |trip| %>
+  <a href="https://www.expedia.com/Flights-Search?flight-type=on&starDate=02%2F14%2F2020&endDate=02%2F17%2F2020&mode=search&trip=roundtrip&leg1=from%3APortland%2C+OR+%28PDX-Portland+Intl.%29%2Cto%3AWashington%2C+District+of+Columbia%2Cdeparture%3A02%2F14%2F2020TANYT&leg2=from%3AWashington%2C+District+of+Columbia%2Cto%3APortland%2C+OR+%28PDX-Portland+Intl.%29%2Cdeparture%3A02%2F17%2F2020TANYT&passengers=children%3A0%2Cadults%3A1%2Cseniors%3A0%2Cinfantinlap%3AY&fareCalendarPrice=398">
+    <div class="card-trip">
+      <img src=<%= trip[:image_url] %> />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= trip[:title] %></h2>
+          <p><%= trip[:description] %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= trip[:price] %></h2>
+      </div>
+    </div>
+  </a>
+<% end %>
